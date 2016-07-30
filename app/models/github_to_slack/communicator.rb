@@ -18,7 +18,7 @@ module GithubToSlack
       label_name = params[:label][:name]
       sender_login = params[:sender][:login]
 
-      alert_message = "_#{sender_login}_ #{label_actions[action]} `#{label_name}` label to *#{pr_title}*.\nPR Link: #{pr_url}"
+      alert_message = "_#{sender_login}_ #{label_actions[action]} `#{label_name}` label.\nPR Title: *#{pr_title}*.\nPR Link: #{pr_url}"
     end
 
     def deliver_message
