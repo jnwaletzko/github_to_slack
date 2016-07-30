@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/github_to_slack.svg)](https://badge.fury.io/rb/github_to_slack)
+
 # GithubToSlack
 Short description and motivation.
 
