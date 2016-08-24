@@ -1,0 +1,32 @@
+<%= form_for(slack) do |f| %>
+  <% if slack.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(slack.errors.count, "error") %> prohibited this slack from being saved:</h2>
+
+      <ul>
+      <% slack.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :webhook_url %>
+    <%= f.text_field :webhook_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :channel_name %>
+    <%= f.text_field :channel_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
