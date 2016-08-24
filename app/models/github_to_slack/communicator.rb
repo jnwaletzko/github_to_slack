@@ -42,7 +42,7 @@ module GithubToSlack
         .new(WEBHOOK_URL,
           channel: CHANNEL_NAME,
           username: 'Github To Slack')
-        .ping(":allthethings: :octocat: :speaker: " + message)
+        .ping(":octocat: :speaker: " + message)
     end
   end
 end
