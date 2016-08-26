@@ -8,8 +8,7 @@ module GithubToSlack
     end
 
     def repository
-      puts params[:head][:repo][:id]
-      @repository ||= Repository.where(github_id: params[:head][:repo][:id]).first
+      @repository ||= Repository.where(github_id: params[:pull_request][:head][:repo][:id]).first
     end
 
     def build_message
