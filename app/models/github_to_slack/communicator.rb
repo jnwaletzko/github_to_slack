@@ -8,6 +8,7 @@ module GithubToSlack
     end
 
     def repository
+      puts params[:head][:repo][:id]
       @repository ||= Repository.where(github_id: params[:head][:repo][:id]).first
     end
 
