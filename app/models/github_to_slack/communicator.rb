@@ -1,5 +1,4 @@
 module GithubToSlack
-  require 'slack-notifier'
   class Communicator
     attr_reader :payload
 

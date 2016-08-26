@@ -1,4 +1,5 @@
 module GithubToSlack
+  require 'slack-notifier'
   class Slack < ActiveRecord::Base
    
     def notify(message)
