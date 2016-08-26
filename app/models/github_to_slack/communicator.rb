@@ -4,12 +4,14 @@ module GithubToSlack
 
     def initialize(payload)
       @payload = payload
+      @params = JSON.parse(payload).with_indifferent_access
+    end
+
+    def repository
+      Repository.where(github_id: params[:repo][:id]).first
     end
 
     def build_message
-      puts "Parsing json"
-      params = JSON.parse(payload).with_indifferent_access
-
       pr_url = params[:pull_request][:html_url]
       pr_title = params[:pull_request][:title]
 
@@ -21,7 +23,7 @@ module GithubToSlack
     end
 
     def deliver_message
-      Slacker.first.notify(build_message)
+      repository.slackers.each { |slacker| slacker.notify(build_message) }
     end
 
     def label_actions

@@ -4,6 +4,7 @@ class CreateGithubToSlackSlackers < ActiveRecord::Migration
       t.string :webhook_url
       t.string :channel_name
       t.string :username
+      t.integer :repository_id
 
       t.timestamps null: false
     end
