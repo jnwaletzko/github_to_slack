@@ -1,7 +1,5 @@
-require_dependency "github_to_slack/application_controller"
-
 module GithubToSlack
-  class SlacksController < ApplicationController
+  class SlacksController < ActionController::Base
     before_action :set_slack, only: [:show, :edit, :update, :destroy]
 
     # GET /slacks
