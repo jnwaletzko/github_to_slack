@@ -1,5 +1,4 @@
 module GithubToSlack
-  require 'slack-notifier'
   class Communicator
     attr_reader :payload
 
@@ -22,7 +21,7 @@ module GithubToSlack
     end
 
     def deliver_message
-      SlackMessage.notify(build_message)
+      Slacker.first.notify(build_message)
     end
 
     def label_actions
@@ -30,19 +29,6 @@ module GithubToSlack
         labeled: :added,
         unlabeled: :removed
       }
-    end
-  end
-
-  class SlackMessage
-    WEBHOOK_URL = ENV["SLACK_WEBHOOK_URL"]
-    CHANNEL_NAME = ENV["SLACK_CHANNEL_NAME"]
-   
-    def self.notify(message)
-      Slack::Notifier
-        .new(WEBHOOK_URL,
-          channel: CHANNEL_NAME,
-          username: 'Github To Slack')
-        .ping(":allthethings: :octocat: :speaker: " + message)
     end
   end
 end

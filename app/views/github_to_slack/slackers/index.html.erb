@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Slackers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Webhook url</th>
+      <th>Channel name</th>
+      <th>Username</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @slackers.each do |slacker| %>
+      <tr>
+        <td><%= slacker.webhook_url %></td>
+        <td><%= slacker.channel_name %></td>
+        <td><%= slacker.username %></td>
+        <td><%= link_to 'Show', slacker %></td>
+        <td><%= link_to 'Edit', edit_slacker_path(slacker) %></td>
+        <td><%= link_to 'Destroy', slacker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Slacker', new_slacker_path %>
