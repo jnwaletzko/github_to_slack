@@ -1,7 +1,5 @@
-require_dependency "github_to_slack/application_controller"
-
 module GithubToSlack
-  class RepositoriesController < ApplicationController
+  class RepositoriesController < ActionController::Base
     before_action :set_repository, only: [:show, :edit, :update, :destroy]
 
     # GET /repositories
