@@ -1,6 +1,6 @@
 module GithubToSlack
   class Communicator
-    attr_reader :payload
+    attr_reader :payload, :params
 
     def initialize(payload)
       @payload = payload
