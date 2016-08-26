@@ -8,7 +8,7 @@ module GithubToSlack
     end
 
     def repository
-      @repository ||= Repository.where(github_id: params[:repository][:id]).first
+      @repository ||= Repository.find_by!(github_id: params[:repository][:id])
     end
 
     def build_message
