@@ -3,11 +3,11 @@ module GithubToSlack
    
     def notify(message)
       puts message
-      puts "#{webhook_url}, #{channel_name}, #{user_name}"
+      puts "#{webhook_url}, #{channel_name}, #{usernname}"
       Slack::Notifier
         .new(webhook_url,
           channel: channel_name,
-          username: user_name)
+          username: username)
         .ping(":octocat: :speaker: " + message)
     end
   end
