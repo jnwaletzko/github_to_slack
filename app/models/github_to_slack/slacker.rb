@@ -1,5 +1,6 @@
 module GithubToSlack
   require 'slack-notifier'
+  require 'attr_encrypted'
   class Slacker < ActiveRecord::Base
     belongs_to :repository
 
